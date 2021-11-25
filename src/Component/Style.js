@@ -80,7 +80,7 @@ const style = StyleSheet.create({
     width: 20,
     height: 20,
     marginHorizontal: 15,
-    backgroundColor: "red",
+    // backgroundColor: "red",
   },
 
   deviceText: {

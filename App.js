@@ -1,9 +1,26 @@
 import { StatusBar } from "expo-status-bar";
 import React from "react";
 import { Text, View, Image, Button } from "react-native";
-import style from "./src/Style";
+import style from "./src/Component/Style";
+import { useState } from "react";
 
 export default function App() {
+  // States
+  const [color, setColor] = useState("red");
+  const [color2, setColor2] = useState("red");
+  const [color3, setColor3] = useState("red");
+  const [deviceOn, setDeviceOn] = useState(0);
+
+  // Functions
+  const green = () => { setColor("green") };
+  const green2 = () => { setColor2("green") };
+  const green3 = () => { setColor3("green") };
+  const red = () => { setColor("red") };
+  const red2 = () => { setColor2("red") };
+  const red3 = () => { setColor3("red") };
+  const increase = () => { setDeviceOn(deviceOn + 1) };
+  const decrease = () => { setDeviceOn(deviceOn - 1) };
+
   return (
     <View style={style.container}>
       {/* Header */}
@@ -57,12 +74,12 @@ export default function App() {
       <View style={style.devicesContainer}>
         <View style={style.devices}>
           <View style={style.devicesSection}>
-            <View style={style.boxes}></View>
+            <View style={[style.boxes, { backgroundColor: color }]}></View>
             <Text style={style.deviceText}>Living Room Lamp</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => console.log("On")} />
-            <Button title="Off" onPress={() => console.log("Off")} />
+            <Button title="On" onPress={() => { green(); increase(); }} />
+            <Button title="Off" onPress={() => { red(); decrease(); }} />
           </View>
         </View>
       </View>
@@ -71,33 +88,32 @@ export default function App() {
       <View style={style.devicesContainer}>
         <View style={style.devices}>
           <View style={style.devicesSection}>
-            <View style={style.boxes}></View>
+            <View style={[style.boxes, { backgroundColor: color2 }]}></View>
             <Text style={style.deviceText}>Heater</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => console.log("On")} />
-            <Button title="Off" onPress={() => console.log("Off")} />
+            <Button title="On" onPress={() => { green2(); increase(); }} />
+            <Button title="Off" onPress={() => { red2(); decrease(); }} />
           </View>
         </View>
       </View>
-
 
       {/* Heater */}
       <View style={style.devicesContainer}>
         <View style={style.devices}>
           <View style={style.devicesSection}>
-            <View style={style.boxes}></View>
+            <View style={[style.boxes, { backgroundColor: color3 }]}></View>
             <Text style={style.deviceText}>TV</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => console.log("On")} />
-            <Button title="Off" onPress={() => console.log("Off")} />
+            <Button title="On" onPress={() => { green3(); increase(); }} />
+            <Button title="Off" onPress={() => { red3(); decrease(); }} />
           </View>
         </View>
       </View>
 
       {/* Section C Total Devices */}
-      <Text style={style.totalText}>Total Devices On: {0 + 0}</Text>
+      <Text style={style.totalText}>Total Devices On: {deviceOn}</Text>
 
       <StatusBar style="auto" />
     </View >
