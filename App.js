@@ -98,7 +98,7 @@ export default function App() {
         </View>
       </View>
 
-      {/* Heater */}
+      {/* TV */}
       <View style={style.devicesContainer}>
         <View style={style.devices}>
           <View style={style.devicesSection}>
