@@ -38,7 +38,6 @@ export default function App() {
       setColor2("green");
       setDeviceOn(deviceOn + 1);
       setOnOff2(true);
-
     }
   }
 
