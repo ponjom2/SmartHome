@@ -10,16 +10,62 @@ export default function App() {
   const [color2, setColor2] = useState("red");
   const [color3, setColor3] = useState("red");
   const [deviceOn, setDeviceOn] = useState(0);
+  const [onOff, setOnOff] = useState(false);
+  const [onOff2, setOnOff2] = useState(false);
+  const [onOff3, setOnOff3] = useState(false);
 
   // Functions
-  const green = () => { setColor("green") };
-  const green2 = () => { setColor2("green") };
-  const green3 = () => { setColor3("green") };
-  const red = () => { setColor("red") };
-  const red2 = () => { setColor2("red") };
-  const red3 = () => { setColor3("red") };
-  const increase = () => { setDeviceOn(deviceOn + 1) };
-  const decrease = () => { setDeviceOn(deviceOn - 1) };
+  // Living Room Lamp
+  const deviceOnn = () => {
+    if (!onOff) {
+      setColor("green");
+      setDeviceOn(deviceOn + 1);
+      setOnOff(true);
+    }
+  }
+
+  const deviceOff = () => {
+    if (onOff) {
+      setColor("red");
+      setDeviceOn(deviceOn - 1);
+      setOnOff(false);
+    }
+  }
+
+  // Heater
+  const deviceOnn2 = () => {
+    if (!onOff2) {
+      setColor2("green");
+      setDeviceOn(deviceOn + 1);
+      setOnOff2(true);
+
+    }
+  }
+
+  const deviceOff2 = () => {
+    if (onOff2) {
+      setColor2("red");
+      setDeviceOn(deviceOn - 1);
+      setOnOff2(false);
+    }
+  }
+
+  // TV
+  const deviceOnn3 = () => {
+    if (!onOff3) {
+      setColor3("green");
+      setDeviceOn(deviceOn + 1);
+      setOnOff3(true);
+    }
+  }
+
+  const deviceOff3 = () => {
+    if (onOff3) {
+      setColor3("red");
+      setDeviceOn(deviceOn - 1);
+      setOnOff3(false);
+    }
+  }
 
   return (
     <View style={style.container}>
@@ -78,8 +124,8 @@ export default function App() {
             <Text style={style.deviceText}>Living Room Lamp</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => { green(); increase(); }} />
-            <Button title="Off" onPress={() => { red(); decrease(); }} />
+            <Button title="On" onPress={deviceOnn} />
+            <Button title="Off" onPress={deviceOff} />
           </View>
         </View>
       </View>
@@ -92,8 +138,8 @@ export default function App() {
             <Text style={style.deviceText}>Heater</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => { green2(); increase(); }} />
-            <Button title="Off" onPress={() => { red2(); decrease(); }} />
+            <Button title="On" onPress={deviceOnn2} />
+            <Button title="Off" onPress={deviceOff2} />
           </View>
         </View>
       </View>
@@ -106,8 +152,8 @@ export default function App() {
             <Text style={style.deviceText}>TV</Text>
           </View>
           <View style={style.buttons}>
-            <Button title="On" onPress={() => { green3(); increase(); }} />
-            <Button title="Off" onPress={() => { red3(); decrease(); }} />
+            <Button title="On" onPress={deviceOnn3} />
+            <Button title="Off" onPress={deviceOff3} />
           </View>
         </View>
       </View>
